@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_codepipeline" "pipeline_sqs_geracao_arquivo" {
-    name = "pipeline_sqs_geracao_arquivo"
+    name = var.PipelineName
     role_arn = aws_iam_role.codepipeline_role.arn
 
     artifact_store {

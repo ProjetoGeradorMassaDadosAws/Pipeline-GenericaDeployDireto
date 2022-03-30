@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "pipeline_sqs_geracao_arquivo_bucket" {
-    bucket = "pipeline-sqs-geracao-arquivo-bucket"
+    bucket = var.BucketName
     tags   = {
        Nome = "pipeline"
   }

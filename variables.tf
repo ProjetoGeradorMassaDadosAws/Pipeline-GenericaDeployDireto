@@ -17,3 +17,24 @@ variable "AWS_SECRET_ACCESS_KEY" {
   type = string
   description = "Segredo da chave AWS"
 }
+
+variable "PipelineName" {
+  type = string
+  description = "Nome da pipeline"
+}
+
+variable "CodebuildName" {
+  type = string
+  description = "Nome do projeto codebuild"
+}
+
+variable "BuildTimeOut" {
+  type = string
+  description = "Tempo maximo de duracao do build"
+  default = "60"
+}
+
+variable "BucketName" {
+  type = string
+  description = "Nome do bucket"
+}

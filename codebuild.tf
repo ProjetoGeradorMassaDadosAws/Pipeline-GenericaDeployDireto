@@ -1,6 +1,6 @@
 resource "aws_codebuild_project" "codebuild_sqs_geracao_arquivo" {
-    name          = "codebuild_sqs_geracao_arquivo"
-    build_timeout = "60"
+    name          = var.CodebuildName
+    build_timeout = var.BuildTimeOut
     service_role  = aws_iam_role.codebuild_role.arn
 
     artifacts {
