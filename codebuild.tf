@@ -60,10 +60,20 @@ resource "aws_codebuild_project" "codebuild_sqs_geracao_arquivo" {
     }
 
     environment {
-        compute_type                = "BUILD_GENERAL1_SMALL"
-        image                       = "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
-        type                        = "LINUX_CONTAINER"
-        image_pull_credentials_type = "CODEBUILD"
+      compute_type                = "BUILD_GENERAL1_SMALL"
+      image                       = "aws/codebuild/amazonlinux2-x86_64-standard:3.0"
+      type                        = "LINUX_CONTAINER"
+      image_pull_credentials_type = "CODEBUILD"
+
+      environment_variable {
+        name  = "AWS_ACCESS_KEY_ID"
+        value = "Seu Id"
+      }
+
+      environment_variable {
+        name  = "AWS_SECRET_ACCESS_KEY"
+        value = "Seu Secret"
+      }
 
     }
 
@@ -84,5 +94,5 @@ resource "aws_codebuild_project" "codebuild_sqs_geracao_arquivo" {
         buildspec       = "buildspec.yaml"
     }
 
-  source_version = "master"
+  source_version = "main"
 }

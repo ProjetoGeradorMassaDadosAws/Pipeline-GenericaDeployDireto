@@ -1,2 +1,2 @@
-FullRepositoryId = "ProjetoGeradorMassaDadosAws/SqsGeracaoArquivoInfra"
-BranchName = "master"
+FullRepositoryId = "ProjetoGeradorMassaDadosAws/Infra-SqsGeracaoArquivo"
+BranchName = "main"
