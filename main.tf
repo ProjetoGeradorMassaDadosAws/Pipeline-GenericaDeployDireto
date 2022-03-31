@@ -4,9 +4,12 @@ provider "aws" {
   profile = "default"
 }
 
+data "aws_iam_role" "role_pipeline" {
+  name = "codepipeline_role"
+}
 resource "aws_codepipeline" "pipeline_sqs_geracao_arquivo" {
     name = var.PipelineName
-    role_arn = aws_iam_role.codepipeline_role.arn
+    role_arn = data.aws_iam_role.role_pipeline.arn
 
     artifact_store {
       location = aws_s3_bucket.pipeline_sqs_geracao_arquivo_bucket.bucket
