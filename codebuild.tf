@@ -1,7 +1,7 @@
 data "aws_iam_role" "role_codebuild" {
   name = "codebuild_role"
 }
-resource "aws_codebuild_project" "codebuild_sqs_geracao_arquivo" {
+resource "aws_codebuild_project" "codebuild" {
     name          = var.CodebuildName
     build_timeout = var.BuildTimeOut
     service_role  = data.aws_iam_role.role_codebuild.arn
@@ -36,7 +36,7 @@ resource "aws_codebuild_project" "codebuild_sqs_geracao_arquivo" {
 
         s3_logs {
             status   = "ENABLED"
-            location = "${aws_s3_bucket.pipeline_sqs_geracao_arquivo_bucket.id}/build-log"
+            location = "${aws_s3_bucket.pipeline_bucket.id}/build-log"
         }
     }
 

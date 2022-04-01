@@ -7,12 +7,12 @@ provider "aws" {
 data "aws_iam_role" "role_pipeline" {
   name = "codepipeline_role"
 }
-resource "aws_codepipeline" "pipeline_sqs_geracao_arquivo" {
+resource "aws_codepipeline" "pipeline" {
     name = var.PipelineName
     role_arn = data.aws_iam_role.role_pipeline.arn
 
     artifact_store {
-      location = aws_s3_bucket.pipeline_sqs_geracao_arquivo_bucket.bucket
+      location = aws_s3_bucket.pipeline_bucket.bucket
       type = "S3"
     }
 
@@ -47,7 +47,7 @@ resource "aws_codepipeline" "pipeline_sqs_geracao_arquivo" {
             input_artifacts = ["source_output"]
            
             configuration = {
-                ProjectName = aws_codebuild_project.codebuild_sqs_geracao_arquivo.name
+                ProjectName = aws_codebuild_project.codebuild.name
             }
         }
     } 
