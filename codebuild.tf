@@ -26,6 +26,11 @@ resource "aws_codebuild_project" "codebuild" {
         value = var.AWS_SECRET_ACCESS_KEY
       }
 
+      environment_variable {
+        name  = "AWS_REGION"
+        value = var.AWS_SECRET_ACCESS_KEY
+      }
+
     }
 
     logs_config {

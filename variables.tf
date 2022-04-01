@@ -18,6 +18,11 @@ variable "AWS_SECRET_ACCESS_KEY" {
   description = "Segredo da chave AWS"
 }
 
+variable "AWS_REGION" {
+  type = string
+  description = "Regiao da Aws"
+}
+
 variable "PipelineName" {
   type = string
   description = "Nome da pipeline"
